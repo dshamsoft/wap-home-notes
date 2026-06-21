@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hth 站点介绍 | 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f5f7;
+      color: #2e3b4e;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* hero 区 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 3rem 2.5rem 2.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e8eaed;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #1d2b3f;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #5f6b7a;
+      max-width: 580px;
+      margin: 0.8rem auto 0;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #edf2f9;
+      color: #2c5775;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      margin-top: 1.2rem;
+      border: 1px solid #d5dee8;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6e9ed;
+      margin-bottom: 1.8rem;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 540;
+      color: #1e2b3f;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #7f9bb3;
+      padding-left: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 520;
+      margin: 1.6rem 0 0.6rem;
+      color: #2c4058;
+    }
+
+    .card p {
+      margin-bottom: 0.8rem;
+      color: #3d4a5c;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 特点列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .feature-item {
+      background: #f8faff;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e3e9f0;
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .feature-item .icon {
+      font-size: 1.3rem;
+      display: inline-block;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 560;
+      color: #1f3349;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-item span {
+      font-size: 0.9rem;
+      color: #4f5f72;
+    }
+
+    /* 使用建议卡片内小标签 */
+    .tip-box {
+      background: #f5f9ff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 16px;
+      border-left: 4px solid #98b1ca;
+      margin: 1.2rem 0 0.4rem;
+    }
+
+    .tip-box p {
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    /* 按钮风格（非强制） */
+    .btn-soft {
+      display: inline-block;
+      background: #f0f3f8;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #29435c;
+      border: 1px solid #dbe1ea;
+      margin: 0.2rem 0.3rem 0.2rem 0;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid #eef1f5;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 540;
+      color: #1b2c42;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      font-size: 0.94rem;
+      color: #546477;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6f7e91;
+      padding: 2rem 0 0.5rem;
+      border-top: 1px solid #e0e4ea;
+      margin-top: 1rem;
+    }
+
+    .footer-note a {
+      color: #365e7a;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0c3d4;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #365e7a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+
+      .tip-box {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- hero -->
+  <div class="hero">
+    <h1>关于 hth · 站点概述</h1>
+    <p class="sub">从产品结构、使用场景到可信说明，为希望了解这一站点的读者提供一份有层次的参考。</p>
+    <span class="badge">产品说明式 · 信息型</span>
+  </div>
+
+  <!-- 摘要卡片 -->
+  <div class="card">
+    <h2>摘要 · 站点定位</h2>
+    <p><strong>hth</strong> 是一个面向特定用户群提供在线功能与服务的网络平台。其设计侧重于模块清晰、响应迅速，并围绕核心功能构建了较为完整的操作流程。从导航布局到内容呈现，都体现出对轻量、易用性的考量。</p>
+    <p>无论是通过移动端还是桌面浏览器，<a href="https://wap-home-hth.com">hth</a> 都保持了统一的信息层级和操作逻辑，这也是其作为工具型站点的基础特征。</p>
+  </div>
+
+  <!-- 亮点卡片 / 特点 -->
+  <div class="card">
+    <h2>功能亮点</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="icon">⚡</div>
+        <strong>轻量交互</strong>
+        <span>页面元素紧凑，减少不必要的跳转与加载，操作反馈直接。</span>
+      </div>
+      <div class="feature-item">
+        <div class="icon">🧩</div>
+        <strong>模块化布局</strong>
+        <span>功能区相对独立，便于快速定位所需板块或信息。</span>
+      </div>
+      <div class="feature-item">
+        <div class="icon">📱</div>
+        <strong>移动优先</strong>
+        <span>针对小屏幕优化了触控区域与排版，适配常见机型。</span>
+      </div>
+      <div class="feature-item">
+        <div class="icon">🔐</div>
+        <strong>常规安全措施</strong>
+        <span>采用标准传输加密与验证机制，保障基础信息安全。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 使用建议 + 可信说明 -->
+  <div class="card">
+    <h2>使用建议 · 可信说明</h2>
+    <p>对于计划了解或使用 <strong>hth</strong> 的用户，以下几条建议可帮助建立合理预期：</p>
+    <div class="tip-box">
+      <p><strong>① 明确需求</strong><br>先浏览站内导航与帮助信息，确认其提供的功能是否匹配你的使用场景。</p>
+      <p><strong>② 环境与网络</strong><br>保持浏览器为常见最新版本，确保网络连接稳定，以获得流畅体验。</p>
+      <p><strong>③ 信息验证</strong><br>如涉及个人数据或操作，建议参考官方说明或对应条款，做出独立判断。</p>
+    </div>
+    <p style="margin-top: 1rem;">关于可信性：<strong>hth</strong> 采用行业普遍的安全传输协议与数据管理方式，但任何在线平台都无法做出绝对承诺。建议用户根据自身风险偏好合理使用，并留意平台更新的隐私政策与服务协议。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card">
+    <h2>常见疑问 · 摘要</h2>
+    <div class="faq-item">
+      <div class="q">hth 主要提供什么类型的服务？</div>
+      <div class="a">一个综合性在线功能平台，覆盖信息浏览、账号管理及若干工具模块，具体以实际页面为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">是否需要注册才能使用？</div>
+      <div class="a">部分基础内容对访客开放，进阶或个性化功能可能需要创建账户，详见站内指引。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">数据与隐私保护如何？</div>
+      <div class="a">平台采用加密传输并遵循一般数据保护惯例，用户应阅读相关条款以了解完整细节。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">移动端与桌面端体验有差异吗？</div>
+      <div class="a">核心功能一致，但部分布局与交互方式针对触屏做了微调，整体保持连续。</div>
+    </div>
+  </div>
+
+  <!-- 页脚 + 链接 -->
+  <div class="footer-note">
+    <p>本页为独立产品说明，仅供参考。有关最新动态与完整功能，请直接访问 <a href="https://wap-home-hth.com">hth</a>。</p>
+    <p style="margin-top: 0.6rem; font-size: 0.8rem;">内容基于公开信息整理 · 不构成建议或担保</p>
+  </div>
+</div>
+</body>
+</html>
